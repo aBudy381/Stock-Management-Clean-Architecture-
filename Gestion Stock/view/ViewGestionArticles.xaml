@@ -1,0 +1,34 @@
+﻿<Window x:Class="Gestion_Stock.View.ViewGestionArticles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gestion_Stock.View"
+        mc:Ignorable="d"
+        Title="ViewGestionArticles" Height="454" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Getion des articles" HorizontalAlignment="Center" FontSize="20"/>
+        <DataGrid ColumnWidth="*" x:Name="data" Height="auto" ItemsSource="{Binding Articles, Mode=TwoWay}" HorizontalAlignment="Center" AutoGenerateColumns="True" Grid.Row="1"  RenderTransformOrigin="0.5,0.5" Margin="6,0,31,0" Width="755">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.414"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,81">
+            <Button x:Name="BAjouter" Content="Ajouter" Command="{Binding CmdAjouter}" Margin="15,0" Click="BAjouter_Click" />
+            <Button x:Name="BModifier" Content="Modifier" Command="{Binding CmdModifier}" Margin="15,0"  Click="BModifier_Click" />
+            <Button x:Name="BSupprimer" Content="Supprimer"  Command="{Binding CmdSupprimer}"  Margin="15,0" Click="BSupprimer_Click"/>
+            <Button x:Name="BRafraichir" Content="Rafraichir" Command="{Binding CmdRafraichir}"  Margin="15,0" Click="BRafraichir_Click"/>
+            <TextBlock x:Name="Status" Text=""  Margin="10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
